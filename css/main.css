@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/jungle_1.jpg);
+    background-position: top;
+    background-size: cover;
+    font-family: 'Frijole', cursive;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    grid-template-rows: 1fr .7fr 5fr .7fr 3fr;
+    color: white;
+    margin-top: 55px;
+}
+
+#header {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    background-color: rgba(234, 234, 234, 0.838);
+    border-radius: 10px;
+    color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+h3 > span {
+    color: #7fff00;
+}
+
+
+#spin-btn {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    display: flex;
+    justify-content: center;
+}
+
+#spin-btn button {
+    font-family: 'Frijole', cursive;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 30px;
+    box-shadow: 10px 9px rgb(155, 112, 112);
+    outline: none;
+}
+
+#spin-btn button:hover {
+    background-color: #7fff00;
+}
+
+#spin-btn button:active {
+    background-color: #3e8e41;
+    box-shadow: 3px 3px rgb(155, 112, 112);
+    transform: translateY(4px);
+}
+
+#coins {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 5/6;
+    display: flex;
+    justify-content: center;
+    padding-left: 5px;
+}
+
+div#coins {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#coins div {
+    display: block;
+    background-color: rgba(234, 234, 234, 0.838);
+    border-radius: 10px;
+    color: black;
+    padding: 2px;
+}
+
+#coins div > span {
+    color: rgb(203, 173, 0);
+}
+
+
+#bet-amt {
+    grid-column: 3/4;
+    grid-row: 5/6;
+    display: flex;
+    justify-content: center;
+    padding-right: 5px;
+}
+
+div#bet-amt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+#bet-amt div {
+    display: block;
+    background-color: rgba(234, 234, 234, 0.838);
+    color: black;
+    border-radius: 10px;
+    padding: 1px;
+}
+
+#input-bet {
+    /* border: .1px solid black; */
+    width: 60%;
+    font-size: 15px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+#top-slot {
+    border: 1px solid rgb(58, 50, 50);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    grid-column: 2/3;
+    background-image: url(../images/slot-top.png);
+    background-position: center;
+    background-size: 78%;
+}
+
+#middle-slot {
+    border: .5px solid rgb(60, 54, 54);
+    grid-column: 2/3;
+    grid-row: 3;
+    background-image: url(../images/slot-middle_2.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#middle-slot-inner {
+    display: flex;
+    justify-content: center;
+    padding-top: 8vmin;
+}
+
+#bottom-slot {
+    border: 1px solid rgb(58, 50, 50);
+    grid-column: 2/3;
+    background-image: url(../images/bottom-slot.png);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-position: center;
+    background-size: 35%;
+}
+
+#left, #center, #right {
+    height: 15vh;
+    width: 20vw;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 4px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vmin;
+}
+
+#display-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 3fr 6fr 3fr;
+        grid-template-rows: 1fr 1fr 7fr 1fr 1fr;
+        margin-top: 0px;
+  }
+
+    h3 {
+        font-size: 20px;
+    }
+  
+    #left, #center, #right {
+        height: 20vh;
+        width: 15vw;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 20px;
+        margin: 5px;
+    }
+
+    #coins, #bet-amt {
+        font-size: 27px;
+    }
+
+    #input-bet {
+        width: 30%;
+        height: 22px;
+        font-size: 16px;
+    }
+}
