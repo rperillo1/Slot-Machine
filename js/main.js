@@ -1,4 +1,15 @@
 /*----- constants -----*/
+const spinSound = new Audio('audio/Spin.mp3')
+const moneySound = new Audio('audio/Cash.mp3')
+const elephantSound = new Audio('audio/Elephant.mp3')
+const fishSound = new Audio('audio/Fish.mp3')
+const frogSound = new Audio('audio/Frog.mp3')
+const hippoSound = new Audio('audio/Hippo.mp3')
+const monkeySound = new Audio('audio/Monkey.mp3')
+const otterSound = new Audio('audio/Otter.mp3')
+const skullSound = new Audio('audio/Scream.mp3')
+
+
 const slotImage = [
     '<i class="fab fa-evernote" style="color: rgb(255, 213, 0)"></i>',
     '<i class="fas fa-hippo" style="color: rgb(255, 65, 65)"></i>',
@@ -85,6 +96,7 @@ function spin() {
         displayMsg.textContent = "LOWER YOUR BET";
         return;
     }
+    spinSound.play()
     addWildsToArray()
     spinAnimation()
     setTimeout(function(){
@@ -107,10 +119,12 @@ function matchCount() {
     if (slots[0] === slots[1] && slots[1] === slots[2]) {
         displayMsg.textContent = `YOU WON ${bet*4}`
         coins+=bet*4;
+        audioDirector(slots[0], slots[1], slots[2])
     }
     else if (slots[0] === slots[1] || slots[1] === slots[2]) {
         displayMsg.textContent = `YOU WON ${bet*2}`
         coins+=bet*1.5;
+        audioDirector(slots[0], slots[1], slots[2])
     }
     else {
         displayMsg.textContent = 'YOU LOSE'
@@ -133,21 +147,25 @@ function checkForWild(){
     if (count === 1) {
         displayMsg.textContent = `YOU WON ${bet*2}`
         coins+=bet*2
+        moneySound.play()
         return true;
     }
     if (count === 2) {
         displayMsg.textContent = `YOU WON ${bet*4}`
         coins+=bet*4
+        moneySound.play()
         return true;
     }
     if (count === 3) {
         displayMsg.textContent = `YOU WON ${bet*6}`
         coins+=bet*6
+        moneySound.play()
         return true;
     }
     if (count === 4) {
         displayMsg.textContent = 'YOU LOSE'
         coins-=bet
+        skullSound.play()
         return true;
     }
     return false;
@@ -160,7 +178,7 @@ function randIdx() {
 
 function addWildsToArray() {
     let randWild = Math.floor(Math.random() * 100)
-    if (randWild >= 50 && randWild <= 80) {
+    if (randWild >= 60 && randWild <= 80) {
         slotImage.push(wilds[0])
     }
     else if (randWild >= 81 && randWild <= 100) {
@@ -172,3 +190,26 @@ function removeWildFromArray(){
     slotImage.pop()
 }
 
+
+function audioDirector(slot1, slot2, slot3){
+    if (slot1 === slot2 || slot2 === slot3) {
+        if (slot2.includes('fa-evernote')) {
+            elephantSound.play()
+        }
+        if (slot2.includes('fa-fish')) {
+            fishSound.play()
+        }
+        if (slot2.includes('fa-frog')) {
+            frogSound.play()
+        }
+        if (slot2.includes('fa-mailchimp')) {
+            monkeySound.play()
+        }
+        if (slot2.includes('fa-hippo')) {
+            hippoSound.play()
+        }
+        if (slot2.includes('fa-otter')) {
+            otterSound.play()
+        }
+    }
+}

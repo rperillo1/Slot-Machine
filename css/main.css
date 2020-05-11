@@ -183,6 +183,17 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
 }
 
+#audio-div {
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+audio {
+    width: 50%;
+}
+
 @media only screen and (min-width: 768px) {
     body {
         grid-template-columns: 3fr 6fr 3fr;
@@ -211,5 +222,9 @@ input[type=number]::-webkit-outer-spin-button {
         width: 30%;
         height: 22px;
         font-size: 16px;
+    }
+
+    audio {
+        width: 30%;
     }
 }
