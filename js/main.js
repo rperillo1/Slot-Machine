@@ -49,30 +49,29 @@ function renderMoney(){
 function spinAnimation(){
     spinBtn.disabled = true;
     let time = 100;
-    let time2 = 600;
-    let time3 = 1200;
-    slotImage.forEach(each => {
+    let time2 = 900;
+    let time3 = 1800;
+    for (let i = 0; i < 12; i++) {
         setTimeout(function() {
             slotLeft.innerHTML = slotImage[randIdx()];
         }, time);
-        time+=100
-    })
-    slotImage.forEach(each => {
+        time+=75
+    }
+    for (let i = 0; i < 12; i++) {
         setTimeout(function() {
             slotCenter.innerHTML = slotImage[randIdx()];
         }, time2);
-        time2+=100
-    })
-    slotImage.forEach(each => {
+        time2+=75
+    }
+    for (let i = 0; i < 12; i++) {
         setTimeout(function() {
             slotRight.innerHTML = slotImage[randIdx()];
         }, time3);
-        time3+=100
-    })
+        time3+=75
+    }
     setTimeout(function() {
-        slots = [slotLeft.innerHTML, slotCenter.innerHTML, slotRight.innerHTML]
-
-    }, 1905)
+        slots = [slotLeft.innerHTML.toString(), slotCenter.innerHTML.toString(), slotRight.innerHTML.toString()]
+    }, 2705)
 }
 
 function spin() {
@@ -95,7 +94,7 @@ function spin() {
             removeWildFromArray()
         }
         spinBtn.disabled = false;
-    }, 1910);
+    }, 2710);
 }
 
 function checkMatch() {
@@ -121,13 +120,13 @@ function matchCount() {
 
 
 function checkForWild(){
-    console.log(slots)
     let count = 0;
+    console.log(typeof slots[0])
     for (let i = 0; i < slots.length; i++) {
-        if (slots[i] === wilds[0]) {
+        if (slots[i].includes('fa-dollar-sign')) {
             count++;
         }
-        if (slots[i] === wilds[1]) {
+        if (slots[i].includes('fa-skull-crossbones')) {
             count=4;
         }
     }
@@ -161,10 +160,10 @@ function randIdx() {
 
 function addWildsToArray() {
     let randWild = Math.floor(Math.random() * 100)
-    if (randWild >= 30 && randWild <= 90) {
+    if (randWild >= 50 && randWild <= 80) {
         slotImage.push(wilds[0])
     }
-    else if (randWild >= 91 && randWild <= 100) {
+    else if (randWild >= 81 && randWild <= 100) {
         slotImage.push(wilds[1])
     }
 }
