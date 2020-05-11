@@ -47,9 +47,10 @@ function renderMoney(){
 
 
 function spinAnimation(){
+    spinBtn.disabled = true;
     let time = 100;
     let time2 = 600;
-    let time3 = 1200
+    let time3 = 1200;
     slotImage.forEach(each => {
         setTimeout(function() {
             slotLeft.innerHTML = slotImage[randIdx()];
@@ -70,6 +71,7 @@ function spinAnimation(){
     })
     setTimeout(function() {
         slots = [slotLeft.innerHTML, slotCenter.innerHTML, slotRight.innerHTML]
+
     }, 1905)
 }
 
@@ -92,6 +94,7 @@ function spin() {
         if (slotImage.length > 6) {
             removeWildFromArray()
         }
+        spinBtn.disabled = false;
     }, 1910);
 }
 
@@ -130,7 +133,6 @@ function checkForWild(){
     }
     if (count === 1) {
         displayMsg.textContent = `YOU WON ${bet*2}`
-        console.log('yo')
         coins+=bet*2
         return true;
     }
