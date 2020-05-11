@@ -37,7 +37,6 @@ init()
 function init() {
     bet = 25;
     coins = 500;
-    renderImages()
     renderMoney()
 }
 
@@ -46,23 +45,54 @@ function renderMoney(){
     betInput.value = bet;
 }
 
-function renderImages() {
-    slotLeft.innerHTML = slotImage[randIdx()];
-    slotCenter.innerHTML = slotImage[randIdx()];
-    slotRight.innerHTML = slotImage[randIdx()];
-    slots = [slotLeft.innerHTML, slotCenter.innerHTML, slotRight.innerHTML]
+
+function spinAnimation(){
+    let time = 100;
+    let time2 = 600;
+    let time3 = 1200
+    slotImage.forEach(each => {
+        setTimeout(function() {
+            slotLeft.innerHTML = slotImage[randIdx()];
+        }, time);
+        time+=100
+    })
+    slotImage.forEach(each => {
+        setTimeout(function() {
+            slotCenter.innerHTML = slotImage[randIdx()];
+        }, time2);
+        time2+=100
+    })
+    slotImage.forEach(each => {
+        setTimeout(function() {
+            slotRight.innerHTML = slotImage[randIdx()];
+        }, time3);
+        time3+=100
+    })
+    setTimeout(function() {
+        slots = [slotLeft.innerHTML, slotCenter.innerHTML, slotRight.innerHTML]
+    }, 1905)
 }
 
-
 function spin() {
-    bet = parseInt(betInput.value)
-    renderImages()
-    addWildsToArray()
-    checkMatch()
-    renderMoney()
-    if (slotImage.length > 6) {
-        removeWildFromArray()
+    if (coins <= 0) {
+        spinBtn.disabled = true;
+        displayMsg.textContent = "YOU'RE BROKE";
+        return;
     }
+    bet = parseInt(Math.floor(betInput.value))
+    if (bet > coins) {
+        displayMsg.textContent = "LOWER YOUR BET";
+        return;
+    }
+    addWildsToArray()
+    spinAnimation()
+    setTimeout(function(){
+        checkMatch()
+        renderMoney()
+        if (slotImage.length > 6) {
+            removeWildFromArray()
+        }
+    }, 1910);
 }
 
 function checkMatch() {
@@ -105,7 +135,6 @@ function checkForWild(){
         return true;
     }
     if (count === 2) {
-        console.log('win bigger bucks')
         displayMsg.textContent = `YOU WON ${bet*4}`
         coins+=bet*4
         return true;
@@ -130,7 +159,7 @@ function randIdx() {
 
 function addWildsToArray() {
     let randWild = Math.floor(Math.random() * 100)
-    if (randWild >= 80 && randWild <= 90) {
+    if (randWild >= 30 && randWild <= 90) {
         slotImage.push(wilds[0])
     }
     else if (randWild >= 91 && randWild <= 100) {
@@ -141,3 +170,4 @@ function addWildsToArray() {
 function removeWildFromArray(){
     slotImage.pop()
 }
+
