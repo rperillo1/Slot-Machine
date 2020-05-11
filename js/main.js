@@ -8,6 +8,7 @@ const hippoSound = new Audio('audio/Hippo.mp3')
 const monkeySound = new Audio('audio/Monkey.mp3')
 const otterSound = new Audio('audio/Otter.mp3')
 const skullSound = new Audio('audio/Scream.mp3')
+const spinningSound = new Audio('audio/Spinning.mp3')
 
 
 const slotImage = [
@@ -96,6 +97,7 @@ function spin() {
         displayMsg.textContent = "LOWER YOUR BET";
         return;
     }
+    spinningSound.play()
     spinSound.play()
     addWildsToArray()
     spinAnimation()
