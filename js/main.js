@@ -114,12 +114,11 @@ function matchCount() {
         displayMsg.textContent = 'YOU LOSE'
         coins-=bet;
     }
-    console.log('bet', bet)
-    console.log('coins', coins)
 }
 
 
 function checkForWild(){
+    console.log(slots)
     let count = 0;
     for (let i = 0; i < slots.length; i++) {
         if (slots[i] === wilds[0]) {
@@ -131,6 +130,7 @@ function checkForWild(){
     }
     if (count === 1) {
         displayMsg.textContent = `YOU WON ${bet*2}`
+        console.log('yo')
         coins+=bet*2
         return true;
     }
