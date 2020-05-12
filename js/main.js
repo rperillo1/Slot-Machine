@@ -46,11 +46,13 @@ spinBtn.addEventListener('click', spin)
 /*----- functions -----*/
 init()
 
+
 function init() {
     bet = 25;
     coins = 500;
     renderMoney()
 }
+
 
 function renderMoney(){
     coinSpan.textContent = coins;
@@ -86,6 +88,7 @@ function spinAnimation(){
     }, 2705)
 }
 
+
 function spin() {
     if (coins <= 0) {
         spinBtn.disabled = true;
@@ -111,11 +114,13 @@ function spin() {
     }, 2710);
 }
 
+
 function checkMatch() {
     if (!checkForWild()) {
         matchCount()
     }
 }
+
 
 function matchCount() {
     if (slots[0] === slots[1] && slots[1] === slots[2]) {
@@ -177,6 +182,7 @@ function checkForWild(){
 function randIdx() {
     return Math.floor(Math.random() * slotImage.length);
 }
+
 
 function addWildsToArray() {
     let randWild = Math.floor(Math.random() * 100)
