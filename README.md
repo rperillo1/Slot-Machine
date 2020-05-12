@@ -8,7 +8,10 @@
 ## Technologies:
 HTML, CSS (Grid, Flexbox), Javascript
 
-#### Link: [Play the game!](https://rperillo1.github.io/The-Field-of-Battle/)
+#### Link: [Play the game!](https://rperillo1.github.io/Slot-Machine/)
 
 
 #### How to play:
+Adjust your bet amount, click spin!
+If your bet is higher than your coins, you will get a message telling you so.
+If your coins hit 0! YOU'RE BROKE BUDDY!
