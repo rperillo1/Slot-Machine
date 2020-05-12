@@ -15,3 +15,6 @@ HTML, CSS (Grid, Flexbox), Javascript
 Adjust your bet amount, click spin!
 If your bet is higher than your coins, you will get a message telling you so.
 If your coins hit 0! YOU'RE BROKE BUDDY!
+
+#### Icebox items:
+1. Build media queries in CSS to match IPADs.
