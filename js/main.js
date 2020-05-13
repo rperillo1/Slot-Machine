@@ -90,9 +90,10 @@ function spinAnimation(){
 
 
 function spin() {
-    if (coins <= 0) {
+    if (coins <= 0.5) {
         spinBtn.disabled = true;
         displayMsg.textContent = "YOU'RE BROKE";
+        coins=0;
         return;
     }
     bet = parseInt(Math.floor(betInput.value))
@@ -177,6 +178,7 @@ function checkForWild(){
     }
     return false;
 }
+
 
 
 function randIdx() {
